@@ -19,6 +19,7 @@ public class MouseMove : MonoBehaviour
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90 ;
 
         Quaternion axis = Quaternion.AngleAxis(angle, transform.forward);
-        transform.rotation = axis;
+        transform.rotation = Quaternion.Slerp(transform.rotation,angle,10*Time.DeltaTime);
+        //transform.rotation = axis;
     }
 }
